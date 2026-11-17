@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://boabxvi8x0u2l"]
+
+[ext_resource type="Script" uid="uid://dkwe11uy2oj8o" path="res://scripts/Main.gd" id="1_0bbpv"]
+[ext_resource type="PackedScene" uid="uid://bpu4pjbxdhlmg" path="res://scenes/EnemyActor.tscn" id="1_elqb8"]
+[ext_resource type="PackedScene" uid="uid://cnis1vidukhwa" path="res://scenes/crosshair.tscn" id="2_rvslj"]
+[ext_resource type="Script" uid="uid://bqa3nhvfee6fa" path="res://scripts/DodgeBar.gd" id="4_c01mt"]
+[ext_resource type="Script" uid="uid://ceecm275ot3q0" path="res://scripts/WaveManager.gd" id="4_rarhs"]
+[ext_resource type="Script" uid="uid://dhsg4ewbi0nx1" path="res://scripts/BattleManager.gd" id="5_vcsgt"]
+
+[node name="Main" type="Node2D" unique_id=184406982]
+script = ExtResource("1_0bbpv")
+
+[node name="EnemyContainer" type="Node2D" parent="." unique_id=853190303]
+
+[node name="EnemyActor" parent="EnemyContainer" unique_id=1427100609 instance=ExtResource("1_elqb8")]
+position = Vector2(640, 360)
+
+[node name="EnemyActor2" parent="EnemyContainer" unique_id=872172993 instance=ExtResource("1_elqb8")]
+position = Vector2(860, 360)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1752586329]
+
+[node name="Crosshair" parent="HUD" unique_id=12598453 instance=ExtResource("2_rvslj")]
+
+[node name="DodgeBar" type="Control" parent="HUD" unique_id=2091649121]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_c01mt")
+
+[node name="WaveManager" type="Node" parent="." unique_id=355912878]
+script = ExtResource("4_rarhs")
+
+[node name="BattleManager" type="Node" parent="." unique_id=71730293]
+script = ExtResource("5_vcsgt")

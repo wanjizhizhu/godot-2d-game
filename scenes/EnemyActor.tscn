@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bpu4pjbxdhlmg"]
+
+[ext_resource type="Texture2D" uid="uid://66b73ofhue7o" path="res://assets/faces/face_normal.jpg" id="1_2ja7h"]
+[ext_resource type="Script" uid="uid://qgj2i1i6plyr" path="res://scripts/EnemyActor.gd" id="1_pc2q0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqp4o"]
+size = Vector2(78, 105)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4515t"]
+size = Vector2(90, 75)
+
+[node name="EnemyActor" type="Node2D" unique_id=1427100609]
+script = ExtResource("1_pc2q0")
+
+[node name="Body" type="Node2D" parent="." unique_id=138497172]
+
+[node name="Torso" type="ColorRect" parent="Body" unique_id=701932237]
+offset_left = -40.0
+offset_top = -55.0
+offset_right = 40.0
+offset_bottom = 55.0
+color = Color(0.27734375, 0.24672034, 0.047668457, 1)
+
+[node name="LegLeft" type="ColorRect" parent="Body" unique_id=1188459140]
+offset_left = -32.0
+offset_top = 55.0
+offset_right = -3.0
+offset_bottom = 137.0
+color = Color(0.24029541, 0.24041367, 0.2421875, 1)
+
+[node name="LegRight" type="ColorRect" parent="Body" unique_id=1605543577]
+offset_left = 3.0
+offset_top = 55.0
+offset_right = 32.0
+offset_bottom = 137.0
+color = Color(0.23921569, 0.23921569, 0.24313726, 1)
+
+[node name="Arms" type="Node2D" parent="Body" unique_id=1058520753]
+z_index = -1
+
+[node name="ArmLeft" type="ColorRect" parent="Body/Arms" unique_id=1320255451]
+offset_left = -60.0
+offset_top = -35.0
+offset_right = -36.0
+offset_bottom = 50.0
+color = Color(0.28627452, 0.21568628, 0.16470589, 1)
+
+[node name="ArmRight" type="ColorRect" parent="Body/Arms" unique_id=269049948]
+offset_left = 36.0
+offset_top = -35.0
+offset_right = 60.0
+offset_bottom = 50.0
+color = Color(0.28627452, 0.21568628, 0.16470589, 1)
+
+[node name="BodyHitBox" type="Area2D" parent="Body" unique_id=2007475328]
+collision_mask = 7
+
+[node name="BodyShape" type="CollisionShape2D" parent="Body/BodyHitBox" unique_id=1734898826]
+shape = SubResource("RectangleShape2D_sqp4o")
+
+[node name="Head" type="Node2D" parent="." unique_id=1254682216]
+position = Vector2(0, -90)
+
+[node name="HeadSprite" type="Sprite2D" parent="Head" unique_id=1463354407]
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("1_2ja7h")
+
+[node name="HeadHitbox" type="Area2D" parent="Head" unique_id=2015007811]
+collision_mask = 7
+
+[node name="HeadShape" type="CollisionShape2D" parent="Head/HeadHitbox" unique_id=1652155816]
+shape = SubResource("RectangleShape2D_4515t")
